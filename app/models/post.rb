@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
     categories_hashes.each do |i, categories_attributes|
       category = Category.find_or_create_by(name: categories_attributes[:name])
       self.post_categories.build(:category => category)
+    end
   end
 
 
