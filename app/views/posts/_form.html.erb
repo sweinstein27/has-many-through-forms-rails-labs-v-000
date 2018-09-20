@@ -10,7 +10,13 @@
     <%= f.text_area :content %>
   </p>
 
-<%= collection_check_boxes(:post, :category_ids, :Category.all, :category_id, :category.name) %>
+  <%= Category.all.each do |c| %>
+      <p>
+        <label for="category_id_ <%= c.id %>"><%= c.name %></label>
+        <input type="checkbox" name="post[category_ids][]" value="<% c.id %>" id="category_id_<%= c.id %>">
+      </p>
+        <% end %>
+
   <%= f.submit %>
 
   <% end %>
