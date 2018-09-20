@@ -8,8 +8,8 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post.categories.build
     @post = Post.new
+    @post.categories.build
   end
 
   def create
